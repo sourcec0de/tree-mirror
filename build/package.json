@@ -1,0 +1,15 @@
+{
+  "name": "tree-mirror",
+  "version": "1.0.0",
+  "description": "DOM tree mirror that watches for changes",
+  "main": "index.js",
+  "keywords": [
+    "tree",
+    "mirror",
+    "mutation",
+    "observer",
+    "dom"
+  ],
+  "author": "Andreas Urbanski <urbanski.andreas@gmail.com>",
+  "license": "MIT"
+}
