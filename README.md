@@ -1,69 +1,44 @@
-# NPM Pyroplate
+# npm/tree-mirror
 
-This is a really, really hot boilerplate for writing NPM modules. It features:
+This node module provides a way to observe DOM tree changes and mirror them between two parties.
 
-* Harmony/ES7 via Babel
-* Webpack with module bundling, tree shaking and minification
-* Karma test runner with chai
-* ESLint
-
-This is suitable for pure libraries that don't use shared dependencies.
-
-## Getting Started
-
-I recommend you modify `package.json` to suit your needs. Update `name, description, author` and GitHub links. When you need to install additional dependencies for your awesome module you can always do
-
-`npm install <dependency> --save`
-
-The `build` directory contains everything that will be released in NPM.
-
-## Installation
-
-You are obviously going to need NodeJS so go ahead and install by issuing (on OSX):
-
-`brew install node`
-
-Which will install `node` and its package manager `npm`. Next you will have to navigate to the project directory
-and run
-
-`npm install`
+To see how this works check the `README.md` in the `build` directory.
 
 ## Development
 
-When developing you can utilize the HMR capabilities of Webpack to automatically bundle and server files for you. Run the hot development server by issuing:
+Make sure `node` and `npm` is installed. Then installed the required development dependencies by navigating to the project root and issuing
+
+`npm install`
+
+You can run the Webpack development server via
 
 `npm run watch`
 
-## Building
+Alternatively you can build the dev or production versions respectively
 
-To build your module for distribution, just use
+```
+npm run build:dev
+npm run build:prod
+```
 
-`npm run build:prod`
-
-Alternatively you can build the development version to include source maps
-
-`npm run build:dev`
+which will output to the `build` directory. However if you are running the dev server, you will not see any file saved.
 
 ## Tests
 
-You can write your tests in the `test` directory. To run unit tests just use:
+To run unit tests use
 
-`npm run test`
+`npm run test:unit`
 
-To run browser tests use
+To run integration tests in browser with Karma use
 
 `npm run test:integration`
 
-To run all tests at once use
+To run all tests in a single run use
 
 `npm run test:all`
 
-Visit https://github.com/webpack/karma-webpack for more information about how to setup your test runners in Webpack.
+## Other
 
-## Publish
+To remove bundles and logs we use the cleanup gulp task
 
-To publish your module to npm, just use
-
-`npm run publish:patch` (bumps patch version 1.0.X)  
-`npm run publish:feature` (bumps minor version 1.X.0)  
-`npm run publish:release` (bumps major version X.0.0)  
+`npm run clean`
