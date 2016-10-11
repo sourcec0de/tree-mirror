@@ -1,3 +1,3 @@
-# Title
+# Tree Mirror
 
-This is my npm package.
+Tree mirror based on MutationObservers.
