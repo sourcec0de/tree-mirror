@@ -1,8 +1,14 @@
 {
   "name": "tree-mirror",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DOM tree mirror that watches for changes",
   "main": "index.js",
+  "homepage": {
+    "url": "https://github.com/andreasur/tree-mirror/tree/master/build#readme"
+  },
+  "bugs": {
+    "url": "https://github.com/andreasur/tree-mirror/issues"
+  },
   "keywords": [
     "tree",
     "mirror",
