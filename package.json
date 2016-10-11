@@ -29,7 +29,7 @@
     "boilerplate"
   ],
   "author": "Andreas Urbanski <urbanski.andreas@gmail.com>",
-  "license": "Unlicense",
+  "license": "MIT",
   "homepage": "https://github.com/andreasur/npm-pyroplate#readme",
   "dependencies": {},
   "devDependencies": {
