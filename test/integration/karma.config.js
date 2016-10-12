@@ -21,7 +21,7 @@ module.exports = function(config) {
 
     // List of files / patterns to load in the browser
     files: [
-      '../../build/index.js',
+      '../../build/tree-mirror.js',
       '*.test.js'
     ],
 

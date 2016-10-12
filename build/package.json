@@ -2,7 +2,7 @@
   "name": "tree-mirror",
   "version": "1.0.1",
   "description": "DOM tree mirror that watches for changes",
-  "main": "index.js",
+  "main": "tree-mirror.js",
   "homepage": {
     "url": "https://github.com/andreasur/tree-mirror/tree/master/build#readme"
   },

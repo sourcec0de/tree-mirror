@@ -1,4 +1,4 @@
-# npm/tree-mirror
+# Tree-mirror
 
 This node module provides a way to observe DOM tree changes and mirror them between two parties.
 

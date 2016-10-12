@@ -29,7 +29,8 @@ module.exports = {
   output: {
     path: dir_build,
     publicPath: "/",
-    filename: 'index.js'
+    filename: 'tree-mirror.js',
+    libraryTarget: 'this'
   },
 
   // Static directory for serve

@@ -1,6 +1,22 @@
 import { TreeMirror, TreeMirrorClient } from './tree-mirror';
 
-if (typeof window === "object") {
-  window.TreeMirror = TreeMirror;
-  window.TreeMirrorClient = TreeMirrorClient;
-}
+(function() {
+  var root = this;
+
+  if( typeof exports !== 'undefined' ) {
+
+    if( typeof module !== 'undefined' && module.exports ) {
+      var exports = module.exports = {
+        TreeMirror: TreeMirror,
+        TreeMirrorClient: TreeMirrorClient
+      }
+    }
+    exports.TreeMirror = TreeMirror;
+    exports.TreeMirrorClient = TreeMirrorClient;
+  }
+  else {
+    root.TreeMirror = TreeMirror;
+    root.TreeMirrorClient = TreeMirrorClient;
+  }
+
+}).call(this);
