@@ -52,8 +52,12 @@ var TreeMirror = (function () {
                 if (newVal === null) {
                     node.removeAttribute(attrName);
                 } else {
-                    if (!_this.delegate || !_this.delegate.setAttribute || !_this.delegate.setAttribute(node, attrName, newVal)) {
+                    try {
+                      if (!_this.delegate || !_this.delegate.setAttribute || !_this.delegate.setAttribute(node, attrName, newVal)) {
                         node.setAttribute(attrName, newVal);
+                      }
+                    } catch(e) {
+                      // Debug node.setAttribute here
                     }
                 }
             });
