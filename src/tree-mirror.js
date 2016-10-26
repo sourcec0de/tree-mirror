@@ -42,7 +42,32 @@ var TreeMirror = (function () {
             var node = _this.deserializeNode(data);
             var parent = _this.deserializeNode(data.parentNode);
             var previous = _this.deserializeNode(data.previousSibling);
-            parent.insertBefore(node, previous ? previous.nextSibling : parent.firstChild);
+
+            try {
+              // The node might be a document element which has a parent reference
+              // to the last node in the idMap. In this case we will see the error
+              // above (see NOTE)
+              if (!node.contains(parent) && (node instanceof HTMLElement == true)) {
+                parent.insertBefore(node, previous ? previous.nextSibling : parent.firstChild);
+              }
+            }
+            catch(e) {
+              // In some cases it seems that MutationSummary determines the parent
+              // of a node incorrectly. Example: <meta> element has parent #document
+              // and previousSibling is <html>. When this occurs we receive an error
+              // that says 'Only one element is allowed on #document'
+              // We probably want to append the node to the sibling
+              if (parent instanceof HTMLDocument &&
+                  previous instanceof HTMLElement &&
+                  parent.contains(previous)) {
+                if (previous.firstChild)
+                  previous.insertBefore(node, previous.firstChild)
+                else
+                  previous.appendChild(node);
+              }
+              // Might still fail but we should call applyChanged inside try...catch
+              // anyway
+            }
         });
 
         attributes.forEach(function (data) {
@@ -119,7 +144,7 @@ var TreeMirror = (function () {
         }
 
         if (!node)
-            throw "ouch";
+          throw "ouch";
 
         this.idMap[nodeData.id] = node;
 
